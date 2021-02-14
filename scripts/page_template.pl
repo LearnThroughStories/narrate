@@ -30,24 +30,12 @@ my $header = <<'__HEADER';
       </div>
 __HEADER
 
-my $footer = <<'__FOOTER';
-    <script type="text/javascript" src="js/jquerypp.custom.js"></script>
-    <script type="text/javascript" src="js/jquery.bookblock.js"></script>
-    <script type="text/javascript" src="js/lets.js"></script>
-    <script>
-      Page.init();
-    </script>
-  </body>
-</html>
-__FOOTER
-
 my $bookname = shift(@ARGV);
 $bookname =~ s{/$}{};  # Get rid of trailing '/' if any
 $bookname =~ s{^.*/}{}; # Get rid of basename. "images/CleverKalyani/" becomes "CleverKalyani"
 
 my $title = `cat "images/$bookname/title.txt"`;
 chomp($title);
-
 
 print ($header);
 print ("      <div class = 'title'>$title</div>\n");
@@ -64,4 +52,16 @@ for (my $i= 0; $i < 30; $i++) {
     print("        <div class=\"bb-item\"> <img src=\"$file\"/></div>\n");
 }
 print ("      </div>\n");
+
+my $footer = <<"__FOOTER";
+    <script type="text/javascript" src="js/jquerypp.custom.js"></script>
+    <script type="text/javascript" src="js/jquery.bookblock.js"></script>
+    <script type="text/javascript" src="js/lets.js"></script>
+    <script>
+      Page().init("$bookname");
+    </script>
+  </body>
+</html>
+__FOOTER
+
 print ($footer);
