@@ -81,7 +81,7 @@ body {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: [logo] 80px [back] 80px [title] auto;
+  grid-template-columns: [logo] 80px [back] 80px [title] auto [dummy]160px;  /* dummy to force the title to center*/
   grid-template-rows: [header] 80px [page] auto;
 }
 

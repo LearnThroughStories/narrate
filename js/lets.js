@@ -1,37 +1,38 @@
-var Page = (function () {
-  var oldau = null;
-  var aualerted = false;
-  var playAudio = function (old, page, isLimit) {
-    if (isLimit) {
-      return false;
-    }
-    url = page <= 9 ? "0" + page : "" + page;
-    url = "audio/clever_kalyani/" + url + ".mp3";
-    var au = new Audio(url);
-    au.addEventListener("canplaythrough", (event) => {
-      try {
-        if (oldau) {
-          oldau.pause();
-        }
-        au.play();
-        oldau = au;
-      } catch (e) {
-        if (!aualerted) {
-          alert("Please enable automatic audio play");
-          aualerted = true;
-        }
-      }
-    });
-  };
-  playAudio(0, 0, false); // Cover page
-  var config = {
+function Page() {
+    var config = {
       $bookBlock: $("#bb-bookblock"),
-      // $navNext : $( '#bb-nav-next' ),
-      // $navPrev : $( '#bb-nav-prev' ),
-      // $navFirst : $( '#bb-nav-first' ),
-      // $navLast : $( '#bb-nav-last' )
-    },
-    init = function () {
+      $bookName: null , // will fix in init
+    }
+
+    var oldau = null;
+    var aualerted = false;
+
+    var playAudio = function (old, page, isLimit) {
+      if (isLimit) {
+        return false;
+      }
+      url = page <= 9 ? "0" + page : "" + page;
+      url = "audio/" + config.$bookName + "/" + url + ".mp3";
+      var au = new Audio(url);
+      au.addEventListener("canplaythrough", (event) => {
+        try {
+          if (oldau) {
+            oldau.pause();
+          }
+          au.play();
+          oldau = au;
+        } catch (e) {
+          if (!aualerted) {
+            alert("Please enable automatic audio play");
+            aualerted = true;
+          }
+        }
+      })
+    } // playAudio
+
+
+    init = function (bookname) {
+      config.$bookName = bookname;
       config.$bookBlock.bookblock({
         speed: 500,
         shadowSides: 0.8,
@@ -39,6 +40,7 @@ var Page = (function () {
         onEndFlip: playAudio,
       });
       initEvents();
+      playAudio(0, 0, false); // Cover page
     },
     initEvents = function () {
       var $slides = config.$bookBlock.children();
@@ -75,4 +77,6 @@ var Page = (function () {
     };
 
   return { init: init };
-})();
+}
+
+window.Page = Page;
