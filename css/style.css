@@ -1,0 +1,78 @@
+
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.header {
+  display: inline-block;
+}
+
+a {
+  /* text-decoration: none; */
+}
+
+.rounded {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+
+.rounded:hover {
+  border-width: 4px;
+  border-color: red;
+}
+
+
+body {
+  /* background: #fde3a7; */
+}
+
+.shelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.book-on-shelf {
+  margin: 1em 1em;
+  /*width: 150px;*/
+  height: 220px;
+  position: relative;
+  background: white;
+  z-index: 1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: box-shadow 0.3s linear;
+  border-left:   1px solid grey;
+  border-bottom: 1px solid grey;
+}
+
+.book-on-shelf img {
+  width: inherit;
+  height: inherit;
+  transform-origin: 0 50%;
+  transform: rotateY(0);
+  transition: all 0.45s ease;
+}
+
+.book-on-shelf::after,
+.book-on-shelf::before, .book img, .book {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+/* On hover, thicken the shadow on the container and on the image, and "rotate" the image along the Y axis */
+.book-on-shelf:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 9px 20px 0 rgba(0, 0, 0, 0.45);
+}
+
+.book-on-shelf:hover img {
+    transform: rotateY(-25deg);
+  box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
