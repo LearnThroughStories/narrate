@@ -1,20 +1,4 @@
-* {
-	margin: 0;
-	box-sizing: border-box; 
-	padding: 0;
-}
 
-.bb-bookblock {
-	width: 1024px;
-	height: 787px; 
-	margin: 0 auto;
-	position: relative;
-	z-index: 100;
-	-webkit-perspective: 1300px;
-	perspective: 1300px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
 
 .bb-page {
 	position: absolute;
@@ -22,6 +6,7 @@
 	transform-style: preserve-3d;
 	-webkit-transition-property: -webkit-transform;
 	transition-property: transform;
+
 }
 
 img {
@@ -117,7 +102,7 @@ img {
 
 /* Content display */
 .bb-content {
-	background: white;
+	/* background: white; */
 }
 
 .bb-vertical .bb-front .bb-content {
@@ -178,7 +163,8 @@ img {
 	top: 0;
 	left: 0;
 	display: none;
-	background: #fff;
+	/* background: #fff; */
+
 }
 
 /* No JS */
