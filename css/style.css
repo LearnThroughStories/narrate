@@ -17,8 +17,8 @@ a {
 }
 
 .header {
-  width: 7vw;
-  height: 7vw;
+  width: 8vh;
+  height: 8vh;
 }
 
 body {
@@ -34,7 +34,10 @@ body {
 .book-on-shelf {
   margin: 1em 1em;
   /*width: 150px;*/
-  height: 220px;
+  max-height: 220px;
+  max-width: 143px;
+  height: 25vh;
+  width:  calc(25vh * 143/220);
   position: relative;
   /* background: white; */
   z-index: 1;
@@ -46,8 +49,8 @@ body {
 }
 
 .book-on-shelf img {
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   transform-origin: 0 50%;
   transform: rotateY(0);
   transition: all 0.45s ease;
@@ -76,12 +79,15 @@ body {
 
 .gridbody {
   margin: auto;
-  max-width: 75vw;
+  /* max-width: 100vh;
+  max-height: 100vh; */
+  height: 100vh;
+  width: 115vh;
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: [logo] 7vw [back] 7vw [title] auto;  /* dummy to force the title to center*/
-  grid-template-rows: [header] 7vw [page] auto;
+  grid-template-columns: [logo] 8vh [back] 8vh [title] auto;  /* dummy to force the title to center*/
+  grid-template-rows: [header] 8vh [page] auto;
 }
 
 .logo {
@@ -109,8 +115,8 @@ body {
 
 .bb-bookblock {
   grid-row: page;
-  width: 80vw;
-  height: 62vw; /* Note: units are in vw. Preserving photo aspect ratio wrt width of 1024 x 787px */
+  width: 117vh;
+  height: 90vh; /* Note: units are in vh. Preserving photo aspect ratio wrt width of 1024 x 787px */
 	margin: 0 auto;
 	position: relative;
 	z-index: 100;
