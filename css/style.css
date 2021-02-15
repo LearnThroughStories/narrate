@@ -77,11 +77,11 @@ body {
 
 .gridbody {
   margin: auto;
-  max-width: 1026px;
+  max-width: 810px;
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: [logo] 80px [back] 80px [title] auto [dummy]160px;  /* dummy to force the title to center*/
+  grid-template-columns: [logo] 80px [back] 80px [title] auto [dummy] 200px;  /* dummy to force the title to center*/
   grid-template-rows: [header] 80px [page] auto;
 }
 
@@ -108,8 +108,8 @@ body {
 
 .bb-bookblock {
   grid-row: page;
-	width: 1025px;
-	height: 788px; 
+  width: 800px;
+  height: 615px;
 	margin: 0 auto;
 	position: relative;
 	z-index: 100;
