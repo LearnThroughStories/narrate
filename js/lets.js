@@ -15,18 +15,17 @@ function Page() {
       url = "audio/" + config.$bookName + "/" + url + ".mp3";
       var au = new Audio(url);
       au.addEventListener("canplaythrough", (event) => {
-        try {
-          if (oldau) {
-            oldau.pause();
-          }
-          au.play();
+        if (oldau) {
+          oldau.pause();
+        }
+        au.play().then(function() {
           oldau = au;
-        } catch (e) {
+        }).catch(function(err) {
           if (!aualerted) {
             alert("Please enable automatic audio play");
             aualerted = true;
           }
-        }
+        })
       })
     } // playAudio
 

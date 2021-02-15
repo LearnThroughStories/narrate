@@ -33,13 +33,11 @@ body {
 
 .book-on-shelf {
   margin: 1em 1em;
-  /*width: 150px;*/
   max-height: 220px;
   max-width: 143px;
   height: 25vh;
-  width:  calc(25vh * 143/220);
+  width:  calc(25vh * 143/220); /* icons are 143x220; maintaining that aspect ratio */
   position: relative;
-  /* background: white; */
   z-index: 1;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 9px 20px 0 rgba(0, 0, 0, 0.25);
   overflow: hidden;
